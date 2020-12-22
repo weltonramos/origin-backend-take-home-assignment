@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/v1")
 public class RiskProfileController {
@@ -19,7 +21,7 @@ public class RiskProfileController {
     private GetRiskProfileUseCase getRiskProfileUseCase;
 
     @GetMapping("/riskprofile")
-    public ResponseEntity<ApiResponse> getRiskProfile(/*@Valid*/ @RequestBody ApiRequest request) {
+    public ResponseEntity<ApiResponse> getRiskProfile(@Valid @RequestBody ApiRequest request) {
         return ResponseEntity.status(HttpStatus.OK).body(getRiskProfileUseCase.execute(request));
     }
 }

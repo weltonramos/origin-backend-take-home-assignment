@@ -20,18 +20,18 @@ public class GetRiskProfileUseCase {
     }
 
     private RiskType getAutoRiskProfile(ApiRequest request) {
-        return null;
+        return RiskType.economic;
     }
 
     private RiskType getDisabilityRiskProfile(ApiRequest request) {
-        return null;
+        return RiskType.regular;
     }
 
     private RiskType getHomeRiskProfile(ApiRequest request) {
-        return null;
+        return RiskType.inelegible;
     }
 
     private RiskType getLifeRiskProfile(ApiRequest request) {
-        return null;
+        return RiskType.economic;
     }
 }

@@ -1,30 +1,31 @@
 package br.com.origin.test.domain;
 
-import javax.validation.constraints.NotBlank;
+import br.com.origin.test.domain.enums.MaritalStatus;
+import lombok.Data;
+import org.hibernate.validator.constraints.Range;
+
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.PositiveOrZero;
 import java.util.List;
 
+@Data
 public class ApiRequest {
 
-    @NotNull(message = "Age can't be null")
-    @Positive(message = "Age can't be negative")
-    private int age;
+    @PositiveOrZero(message = "Age can't be negative.")
+    private Integer age;
 
-    @NotNull(message = "Dependents can't be null")
-    @Positive(message = "Dependents can't be negative")
-    @Size(min = 0)
-    private int dependents;
+    @Range(min = 0)
+    @PositiveOrZero(message = "Dependents can't be negative.")
+    private Integer dependents;
 
     private House house;
 
-    @Positive(message = "Income can't be positive")
-    private int income;
+    @Range(min = 0)
+    @PositiveOrZero(message = "Income can't be negative.")
+    private Integer income;
 
-    @NotBlank(message = "MaritalStatus can't be empty")
-    private String maritalStatus;
-
+    @NotNull(message = "Marital Status can't be empty.")
+    private MaritalStatus maritalStatus;
     private List<Integer> riskQuestions;
     private Vehicle vehicle;
 }

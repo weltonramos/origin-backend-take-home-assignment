@@ -1,5 +1,9 @@
 package br.com.origin.test.domain;
 
+import lombok.Data;
+
+@Data
 public class Vehicle {
-    private int year;
+
+    private Integer year;
 }
