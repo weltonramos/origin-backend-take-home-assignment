@@ -1,43 +1,46 @@
 package br.com.origin.test.domain;
 
-import br.com.origin.test.domain.enums.RiskType;
+import br.com.origin.test.domain.enums.AutoRisk;
+import br.com.origin.test.domain.enums.DisabilityRisk;
+import br.com.origin.test.domain.enums.HomeRisk;
+import br.com.origin.test.domain.enums.LifeRisk;
 
 public class ApiResponse {
 
-    private RiskType auto;
-    private RiskType disability;
-    private RiskType home;
-    private RiskType life;
+    private AutoRisk auto;
+    private DisabilityRisk disability;
+    private HomeRisk home;
+    private LifeRisk life;
 
-    public RiskType getAuto() {
+    public AutoRisk getAuto() {
         return auto;
     }
 
-    public RiskType getDisability() {
-        return disability;
-    }
-
-    public RiskType getHome() {
-        return home;
-    }
-
-    public RiskType getLife() {
-        return life;
-    }
-
-    public void setAuto(RiskType auto) {
+    public void setAuto(AutoRisk auto) {
         this.auto = auto;
     }
 
-    public void setDisability(RiskType disability) {
+    public DisabilityRisk getDisability() {
+        return disability;
+    }
+
+    public void setDisability(DisabilityRisk disability) {
         this.disability = disability;
     }
 
-    public void setHome(RiskType home) {
+    public HomeRisk getHome() {
+        return home;
+    }
+
+    public void setHome(HomeRisk home) {
         this.home = home;
     }
 
-    public void setLife(RiskType life) {
+    public LifeRisk getLife() {
+        return life;
+    }
+
+    public void setLife(LifeRisk life) {
         this.life = life;
     }
 }
