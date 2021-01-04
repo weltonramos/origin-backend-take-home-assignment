@@ -11,6 +11,10 @@ public enum AutoRisk {
     responsible,
     ineligible;
 
+    private static final int THIRTY_YEARS_OLD = 30;
+    private static final int FORTY_YEARS_OLD = 40;
+    private static final int BASE_INCOME = 200;
+
     public static AutoRisk calculateRisk(ApiRequest request, int baseScore) {
 
         if (request.getVehicle() == null) {
@@ -19,13 +23,13 @@ public enum AutoRisk {
 
         baseScore = (LocalDate.now().getYear() - request.getVehicle().getYear()) <= 5 ? baseScore += 1 : baseScore;
 
-        if (request.getAge() < 30) {
+        if (request.getAge() < THIRTY_YEARS_OLD) {
             baseScore -= 2;
-        } else if (request.getAge() <= 40) {
+        } else if (request.getAge() <= FORTY_YEARS_OLD) {
             baseScore -= 1;
         }
 
-        baseScore = request.getIncome() > 200 ? baseScore -= 1 : baseScore;
+        baseScore = request.getIncome() > BASE_INCOME ? baseScore -= 1 : baseScore;
 
         return getAutoRisk(baseScore);
     }
